@@ -1,0 +1,211 @@
+#VRML_SIM R2021b utf8
+WorldInfo {
+  coordinateSystem "NUE"
+}
+Viewpoint {
+  orientation -0.7036658684851045 -0.6640009111963545 -0.25289748013674324 1.0157931557989994
+  position -0.926881580465342 1.7734519986582855 1.3476301248127172
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+}
+Robot {
+  translation -7.834421079440022e-07 0.039719952194710965 8.77616964897629e-12
+  rotation -1.0139209264811925e-07 -2.7149860662848006e-09 0.9999999999999949 1.958467610114368e-05
+  children [
+    Solid {
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.666667 0 0
+            metalness 0
+          }
+          geometry Box {
+            size 0.03 0.25 0.03
+          }
+        }
+        Camera {
+          translation 0.001 0.1 0
+          rotation 0 1 0 -2.88
+          name "cam"
+          width 640
+          height 640
+          recognition Recognition {
+            frameThickness 3
+          }
+        }
+      ]
+      name "solid(4)"
+    }
+    DistanceSensor {
+      translation 0.02 0 0.1
+      rotation 0 -1 0 1.27
+      children [
+        Shape {
+          appearance PBRAppearance {
+          }
+          geometry Box {
+            size 0.01 0.01 0.01
+          }
+        }
+      ]
+      name "ds_right"
+    }
+    DistanceSensor {
+      translation -0.02 0 0.1
+      rotation 0 -1 0 1.87
+      children [
+        Shape {
+          appearance PBRAppearance {
+          }
+          geometry Box {
+            size 0.01 0.01 0.01
+          }
+        }
+      ]
+      name "ds_left"
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position 1.399318000494809e-09
+        anchor -0.06 0 0.05
+      }
+      device [
+        RotationalMotor {
+          name "wheel2"
+        }
+      ]
+      endPoint Solid {
+        translation -0.06 0 0.05
+        rotation 7.002163794140293e-10 -6.996590002474045e-10 1 1.57
+        children [
+          DEF wheel2 Shape {
+            appearance PBRAppearance {
+            }
+            geometry Cylinder {
+              height 0.02
+              radius 0.04
+            }
+          }
+        ]
+        boundingObject USE wheel2
+        physics Physics {
+        }
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position 1.4008261967625876e-09
+        anchor 0.06 0 0.05
+      }
+      device [
+        RotationalMotor {
+          name "wheel1"
+        }
+      ]
+      endPoint Solid {
+        translation 0.06 0 0.05
+        rotation 7.009710782956961e-10 -7.004130983812938e-10 1 1.57
+        children [
+          DEF wheel1 Shape {
+            appearance PBRAppearance {
+            }
+            geometry Cylinder {
+              height 0.02
+              radius 0.04
+            }
+          }
+        ]
+        name "solid(1)"
+        boundingObject USE wheel1
+        physics Physics {
+        }
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position 1.3993183885189682e-09
+        anchor -0.06 0 -0.05
+      }
+      device [
+        RotationalMotor {
+          name "wheel4"
+        }
+      ]
+      endPoint Solid {
+        translation -0.06 0 -0.05
+        rotation 7.002165735806674e-10 -6.996591942594841e-10 1 1.57
+        children [
+          DEF wheel4 Shape {
+            appearance PBRAppearance {
+            }
+            geometry Cylinder {
+              height 0.02
+              radius 0.04
+            }
+          }
+        ]
+        name "solid(2)"
+        boundingObject USE wheel4
+        physics Physics {
+        }
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position 1.4008257351772178e-09
+        anchor 0.06 0 -0.05
+      }
+      device [
+        RotationalMotor {
+          name "wheel3"
+        }
+      ]
+      endPoint Solid {
+        translation 0.06 0 -0.05
+        rotation 7.009708473191515e-10 -7.004128675886089e-10 1 1.57
+        children [
+          DEF wheel3 Shape {
+            appearance PBRAppearance {
+            }
+            geometry Cylinder {
+              height 0.02
+              radius 0.04
+            }
+          }
+        ]
+        name "solid(3)"
+        boundingObject USE wheel3
+        physics Physics {
+        }
+      }
+    }
+    DEF body Shape {
+      appearance PBRAppearance {
+        baseColor 0 0.666667 0
+        metalness 0
+      }
+      geometry Box {
+        size 0.1 0.05 0.2
+      }
+    }
+  ]
+  boundingObject USE body
+  physics Physics {
+  }
+  controller "robot_C"
+}
+Apple {
+  translation 0.33 0.049764745061238 0.27
+}
+Apple {
+  translation 0 0.049764745061238 -0.29
+  name "apple(1)"
+}
+Apple {
+  translation -0.36 0.049764745061238 0
+  name "apple(2)"
+}
